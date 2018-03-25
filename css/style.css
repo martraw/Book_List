@@ -70,7 +70,7 @@ table {
   text-align: left
 }
 
-thead .delete {
+thead .delete-td {
   color: #000
 }
 
@@ -78,10 +78,15 @@ td {
   padding: 3px 0;
 }
 
-.delete {
+.delete-td {
   color: red;
   text-align: center;
   font-weight: 700;
+  width: 65px
+}
+
+.delete {
+  cursor: pointer;
 }
 
 tbody tr:nth-child(odd) {

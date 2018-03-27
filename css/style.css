@@ -70,8 +70,8 @@ table {
   text-align: left
 }
 
-thead .delete-td {
-  color: #000
+thead .delete-th {
+  width: 65px
 }
 
 td {

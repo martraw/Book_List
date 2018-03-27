@@ -32,12 +32,12 @@ UI.prototype.clearFormFields = function() {
   })
 }
 
+// Show message
 UI.prototype.showMessage = function(message, cssClass) {
   const messageBox = document.querySelector('#message-box');
   //Create message element
   const div = document.createElement('div');
-  div.classList.add('message');
-  div.classList.add(cssClass);
+  div.className = `message ${cssClass}`;
   div.innerText = message;
 
   messageBox.appendChild(div);
@@ -47,9 +47,17 @@ UI.prototype.showMessage = function(message, cssClass) {
   }, 3000);
 }
 
+UI.prototype.deleteBook = function (target) {
+  if (target.className === 'delete') {
+    target.parentElement.parentElement.remove();
+  }
+}
+
 // instatniate UI object
 const ui = new UI();
 
+
+// Event listenter for add book
 document.querySelector('#book-form').addEventListener('submit', (e) => {
   //Get input values
   const title = document.querySelector('#title').value;
@@ -72,6 +80,12 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
     ui.showMessage('Book added', 'success');
   }
 
-
   e.preventDefault()
+});
+
+// Event listenter for remove book
+document.querySelector('#book-list').addEventListener('click', (e) => {
+  ui.deleteBook(e.target);
+  ui.showMessage('Book deleted', 'success');
+  e.preventDefault();
 })
